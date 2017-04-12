@@ -114,4 +114,18 @@ $(function() {
             });
         });
     });
+
+    /* Attempts to request content from inexistent feeds generate
+     * an error message.
+     */
+    describe('Unknown Feed Request', function() {
+        beforeEach(function(done) {
+            spyOn(window, 'alert');
+            loadFeed(10, done);
+        });
+
+        it('displays an error message', function() {
+            expect(window.alert).toHaveBeenCalledWith("Error: The requested feed doesn't exist.");
+        });
+    });
 }());
