@@ -2,9 +2,9 @@ beforeEach(function() {
     jasmine.addMatchers({
         toHaveClass: function() {
             return {
-                compare: function(actual, expected) {
+                compare: function($actual, $expected) {
                     return {
-                        pass: actual.getAttribute("class").split(" ").indexOf(expected) !== -1
+                        pass: $actual.hasClass($expected)
                     };
                 }
             };
