@@ -128,4 +128,23 @@ $(function() {
             expect(window.alert).toHaveBeenCalledWith("Error: The requested feed doesn't exist.");
         });
     });
+
+    // Show error message when AJAX fails
+    describe('Failed Feed request', function() {
+        beforeEach(function(done) {
+            jasmine.Ajax.install();
+            spyOn(window, 'alert');
+            loadFeed(0, done);
+            var request = jasmine.Ajax.requests.mostRecent();
+            request.respondWith({status: 503});
+        });
+
+        it('displays an error message', function() {
+            expect(window.alert).toHaveBeenCalledWith("Error: The content failed to load. Please check your Internet connection.");
+        });
+
+        afterEach(function() {
+            jasmine.Ajax.uninstall();
+        });
+    });
 }());

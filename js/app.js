@@ -84,6 +84,7 @@ function init() {
                },
        error: function (result, status, err){
                  //run only the callback without attempting to parse result due to error
+                 alert("Error: The content failed to load. Please check your Internet connection.");
                  if (cb) {
                      cb();
                  }
