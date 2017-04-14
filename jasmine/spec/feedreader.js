@@ -60,10 +60,9 @@ $(function() {
         /* Ensure when the loadFeed function is called and completes its work,
          * there is at least a single .entry element within the .feed container.
          */
-        it('have at least one entry', function(done) {
-            var $entries = $(".feed").find(".entry");
+        it('have at least one entry', function() {
+            var $entries = $(".feed .entry");
             expect($entries.length).toBeGreaterThan(0);
-            done();
         });
     });
 
