@@ -21,6 +21,7 @@ $(function() {
         it('have URLs', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.url).toBeDefined();
+                expect(feed.url).not.toBeNull();
             });
         });
 
@@ -28,6 +29,7 @@ $(function() {
         it('have names', function() {
             allFeeds.forEach(function(feed) {
                 expect(feed.name).toBeDefined();
+                expect(feed.name).not.toBeNull();
             });
         });
     });
